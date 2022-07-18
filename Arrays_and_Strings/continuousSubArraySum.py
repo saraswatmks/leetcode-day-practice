@@ -1,5 +1,5 @@
 """
-Find the continuous subarray that sums upto k.
+Find the continuous subarray that sums upto multiple of k.
 
 Input: nums = [23,2,4,6,7], k = 6
 Output: true

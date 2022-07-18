@@ -13,6 +13,8 @@ from typing import List
 class Solution:
     def groupAnagrams1(self, strs: List[str]):
         """
+        Sort each string and store in a map.
+
         Time Complexity: O(k * n log n)
         Space Complexity: O(k)
         """

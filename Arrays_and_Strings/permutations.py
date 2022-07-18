@@ -13,12 +13,12 @@ class Solution:
             if first == n:
                 output.append(nums[:])
 
-            for i in range(
-                first, n
-            ):  # [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]
+            for i in range(first, n):
+                # [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]
                 print(f"{i=}, {nums=}, {first=}, {output=}")
                 nums[first], nums[i] = nums[i], nums[first]
                 backtrack(first + 1)
+                # this line is doing backtracking
                 nums[first], nums[i] = nums[i], nums[first]
 
         n = len(nums)

@@ -32,8 +32,7 @@ class Solution:
                             longest_palindrome_start = start
                             longest_palindrome_len = palindrome_len
         return s[
-            longest_palindrome_start : longest_palindrome_start
-            + longest_palindrome_len
+            longest_palindrome_start : longest_palindrome_start + longest_palindrome_len
         ]
 
     def longestPalindrome2(self, s: str):
@@ -60,11 +59,32 @@ class Solution:
                 longest_palindrome_start = left + 1
 
         return s[
-            longest_palindrome_start : longest_palindrome_start
-            + longest_palindrome_len
+            longest_palindrome_start : longest_palindrome_start + longest_palindrome_len
         ]
+
+    def longestPalindrome3(self, s: str):
+        """
+        Time complexity: O(n2)
+        Space complexity: O(k) k -> length of longest substring
+        """
+
+        def _helper(s, l, r):
+            # expand outwards
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                l -= 1
+                r += 1
+            return s[l + 1 : r]
+
+        res = ""
+        for i in range(len(s)):
+            # idea is to start from middle and expand in both directions
+            odd = _helper(s, i, i)
+            even = _helper(s, i, i + 1)
+            res = max(res, odd, even, key=len)
+
+        return res
 
 
 if __name__ == "__main__":
-    s = "abba"
-    print(Solution().longestPalindrome(s))
+    s = "babad"
+    print(Solution().longestPalindrome3(s))

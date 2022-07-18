@@ -31,6 +31,7 @@ class Solution:
             else:
                 prev.next = list2
                 list2 = list2.next
+            prev = prev.next
 
         prev.next = list1 or list2
         return dummy.next

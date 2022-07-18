@@ -8,6 +8,8 @@ https://leetcode.com/problems/maximum-profit-in-job-scheduling/
 
 
 from bisect import bisect_left
+import heapq
+from locale import currency
 
 
 class Solution:
@@ -54,6 +56,27 @@ class Solution:
 
         return dp(0)
 
+    def jobSchedulingThree(self, startTime, endTime, profit):
+        """
+        Time Complexity: O(n log n)
+        Space Complexity: O(n)
+        """
+        jobs = sorted(zip(startTime, endTime, profit))
+        heap = []
+        curr_profit = 0
+        max_profit = 0
+        for start, end, profit in jobs:
+            # heap[0][0] is the end time, endtime should be less than start to avoid overlap
+            while heap and heap[0][0] <= start:
+                _, tempProfit = heapq.heappop(heap)
+                curr_profit = max(curr_profit, tempProfit)
+
+            # push the job into heap for further use
+            heapq.heappush(heap, (end, curr_profit + profit))
+            max_profit = max(max_profit, curr_profit + profit)
+
+        return max_profit
+
 
 if __name__ == "__main__":
     startTime = [1, 2, 3, 3]
@@ -62,4 +85,6 @@ if __name__ == "__main__":
     sol = Solution().jobSchedulingOne(startTime, endTime, profit)
     print(sol)
     sol = Solution().jobSchedulingTwo(startTime, endTime, profit)
+    print(sol)
+    sol = Solution().jobSchedulingThree(startTime, endTime, profit)
     print(sol)
