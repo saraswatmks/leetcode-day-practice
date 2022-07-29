@@ -62,11 +62,45 @@ class Solution:
 
         return output
 
+    def findAnagramsThree(self, s: str, p: str):
+        """
+        Using sliding window
+        Time Complexity: O(N)
+        Space Complexity: O(K) -> K is length of shorter string.
+        """
+        ns, np = len(s), len(p)
+        if ns < np:
+            return []
+
+        i = j = 0
+        p_count = Counter(p)
+        s_count = Counter()
+        output = []
+
+        while j < len(s):
+            s_count[s[j]] += 1
+            if j - i + 1 < np:
+                j += 1
+            elif j - i + 1 == np:
+                # anagram found
+                if s_count == p_count:
+                    output.append(i)
+                # move the window and update the counter
+                if s_count[s[i]] == 1:
+                    del s_count[s[i]]
+                else:
+                    s_count[s[i]] -= 1
+                i += 1
+                j += 1
+        return output
+
 
 if __name__ == "__main__":
     s = "cbaebabacd"
     p = "abc"
-    sol = Solution().findAnagramsOne(s, p)
-    print(sol)
+    # sol = Solution().findAnagramsOne(s, p)
+    # print(sol)
     sol = Solution().findAnagramsTwo(s, p)
+    print(sol)
+    sol = Solution().findAnagramsThree(s, p)
     print(sol)

@@ -4,9 +4,6 @@ https://leetcode.com/problems/average-of-levels-in-binary-tree/
 """
 
 # Definition for a binary tree node.
-from tkinter.tix import Tree
-
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -33,7 +30,7 @@ class Solution:
                 getAverage(node.right, depth + 1)
 
         getAverage(root)
-        return avg
+        return [cnt / lng for cnt, lng in avg]
 
     def averageOfLevelsBFS1(self, root: TreeNode):
         """

@@ -2,6 +2,15 @@
 Traverse the tree vertically.
 https://leetcode.com/problems/binary-tree-vertical-order-traversal/solution/
 
+     3
+    / \
+   9  20
+      / \
+     15  7
+
+Input: root = [3,9,20,null,null,15,7]
+Output: [[9],[3,15],[20],[7]]
+
 """
 from collections import defaultdict, deque
 
@@ -64,7 +73,9 @@ class Solution:
 
     def verticalOrderThree(self, root: TreeNode):
         """
-        DFS
+        DFS: Here we must keep a track of row indices as well.
+        We don't need that in BFS since we iterate row wise already, so the
+        sequence is automatically maintained.
 
         Time Complexity: O(W * H log H)
         W -> width of the binary tree

@@ -4,6 +4,13 @@ https://leetcode.com/problems/symmetric-tree/
 
 A tree is symmetric if is a mirror version.
 
+      1
+    /   \
+    2    2
+   /\    /\
+  3  4   4 3
+
+
 Input: root = [1,2,2,3,4,4,3]
 Output: true
 """

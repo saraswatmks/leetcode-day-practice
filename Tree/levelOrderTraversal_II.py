@@ -2,6 +2,12 @@
 Level order traversal from bottom to top.
 https://leetcode.com/problems/binary-tree-level-order-traversal-ii/
 
+     3
+    / \
+   9  20
+      / \
+     15  7
+
 Input: root = [3,9,20,null,null,15,7]
 Output: [[15,7],[9,20],[3]]
 

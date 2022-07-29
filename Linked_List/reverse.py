@@ -45,13 +45,39 @@ class Solution:
             return head
 
         p = self.reverseListRecursive(head.next)
+        # here head points to the original head
+        # connects 5 <- 4<- 3 <- 2 to 1
         head.next.next = head
         head.next = None
         return p
+
+    def reverseListRecursiveTwo(self, head: ListNode):
+        """
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
+
+        def solve(head, curr, prev):
+            # when we reach the end, we set the prev to head
+            # since that is going to be the first valid node from the end.
+            if not curr:
+                head = prev
+                return
+
+            forward = curr.next
+            solve(head, forward, curr)
+            curr.next = prev
+
+        prev = None
+        curr = head
+        solve(head, curr, prev)
+        return head
 
 
 if __name__ == "__main__":
     l = [1, 2, 3, 4, 5]
     ll = list_to_link(l)
     s = Solution().reverseListRecursive(ll)
+    print(s)
+    s = Solution().reverseListRecursiveTwo(ll)
     print(s)
