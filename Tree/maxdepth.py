@@ -49,3 +49,24 @@ class Solution:
                 stack.append((curr_depth + 1, root.right))
 
         return depth
+    
+    def maxdepth3(self, root: TreeNode):
+        """
+        Keep increasing depth as we go down.
+        Once we reach at bottom, return depth.
+
+        Time Complexity: O(n)
+        Space Complexity: O(n) if tree_is_unbalanced else O(logn)
+        """
+
+        def dfs(node, depth):
+            # base case
+            if not node:
+                return depth
+            
+            left = dfs(node.left, depth + 1)
+            right = dfs(node.right, depth + 1)
+
+            return max(left, right)
+
+        return dfs(root, 1)

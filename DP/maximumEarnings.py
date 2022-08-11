@@ -23,6 +23,7 @@ class Solution:
         dp = [0] * (n + 1)
         for i in range(n - 1, 0, -1):
             for e, d in rideStartAt[i]:
+                # input can have multiple rides starting at the same point
                 dp[i] = max(dp[i], dp[e] + d)
             dp[i] = max(dp[i], dp[i + 1])
 

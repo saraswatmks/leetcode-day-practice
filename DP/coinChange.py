@@ -95,11 +95,11 @@ class Solution:
 
 if __name__ == "__main__":
     # coins = [1, 2, 5]
-    coins = [7, 5, 1]
+    coins = [7, 5, 3]
     amount = 18
     sol = Solution().countCoins(amount, coins)
     print(sol)
-    sol = Solution().countCountWithdp(amount, coins)
-    print(sol)
-    sol = Solution().countCoinsBFS(amount, coins)
-    print(sol)
+    # sol = Solution().countCountWithdp(amount, coins)
+    # print(sol)
+    # sol = Solution().countCoinsBFS(amount, coins)
+    # print(sol)

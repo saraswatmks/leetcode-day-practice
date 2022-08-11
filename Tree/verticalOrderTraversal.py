@@ -102,10 +102,8 @@ class Solution:
                 dfs(node.right, row + 1, column + 1)
 
         dfs(root, 0, 0)
-        ret = []
-        for col in range(min_column, max_column + 1):
-            columnTable[col].sort(key=lambda x: x[0])
-            colVals = [val for row, val in columnTable[col]]
-            ret.append(colVals)
-
-        return ret
+        # [[get list after sorting a lst using first index, then second index] for each col, list in column table map]
+        return [
+            [value for x, value in sorted(lst)]
+            for col, lst in sorted(columnTable.items())
+        ]

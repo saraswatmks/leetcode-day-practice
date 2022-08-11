@@ -19,7 +19,7 @@ class Solution:
                 nums[first], nums[i] = nums[i], nums[first]
                 backtrack(first + 1)
                 # this line is doing backtracking
-                nums[first], nums[i] = nums[i], nums[first]
+                                                                                                                                                                                                          
 
         n = len(nums)
         output = []

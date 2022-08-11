@@ -40,7 +40,7 @@ class Solution:
 
     def treeSumTwo(root: TreeNode):
         """
-        This is iterative solution. Going bfs.
+        This is iterative solution. Going BFS.
 
         Time Complexity: O(N) <- N is number of nodes
         Space Complexity: O(H) <- H is height of tree

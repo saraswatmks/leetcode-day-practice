@@ -1,8 +1,12 @@
 """
 Remove duplicates from a sorted / unsorted list.
 https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+https://leetcode.com/problems/remove-duplicates-from-an-unsorted-linked-list/
 
 """
+
+
+from typing import List
 
 
 class ListNode:
@@ -14,7 +18,7 @@ class ListNode:
 class Solution:
     def removeDuplicatesOne(self, head: ListNode):
         """
-        From an unsorted list.
+        From an sorted list.
 
         Time Complexity: O(n^2)
         Space Complexity: O(1)
@@ -33,17 +37,38 @@ class Solution:
 
     def removeDuplicatesTwo(self, head: ListNode):
         """
-        From a sorted list.
+        From an un sorted list.
 
         Time Complexity: O(n)
-        Space Complexity: O(1)
+        Space Complexity: O(n)
         """
 
-        pass
+        if not head:
+            return None
+
+        d = {}
+        curr = head
+
+        while curr:
+            d[curr.val] = d.get(curr.val, 0) + 1
+            curr = curr.next
+
+        dummy = ListNode(-1)
+        dummy.next = head
+        prev = dummy
+
+        while head:
+            if d[head.val] > 1:
+                prev.next = head.next
+            else:
+                prev = prev.next
+            head = head.next
+
+        return dummy.next
 
     def removeDuplicatesThree(self, head: ListNode):
         """
-        From an unsorted list.
+        From a sorted list.
         Using hashmap.
 
         Time Complexity: O(n)
