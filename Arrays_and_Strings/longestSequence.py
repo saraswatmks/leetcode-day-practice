@@ -92,8 +92,6 @@ class Solution:
                 longest = max(longest, current_len)
         return longest
 
-        return
-
 
 if __name__ == "__main__":
     # s1 =  [100,4,200,1,3,2]

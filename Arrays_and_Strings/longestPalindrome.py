@@ -14,7 +14,7 @@ class Solution:
         Time complexity: O(n2)
         Space complexity: O(n2)
         """
-        n = len(s)
+        n = len(s)   
         dp = [[False] * n for _ in range(n)]
         for i in range(n):
             dp[i][i] = True

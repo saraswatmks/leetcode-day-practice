@@ -2,7 +2,7 @@
 
 This is sliding window question.
 
-Find longest substring with atmost two.
+Find longest substring with atmost two distinct chars.
 https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/
 
 Input: s = "eceba"

@@ -6,8 +6,6 @@ Input: s = "][]["
 Output: 1
 """
 
-from re import L
-
 
 class Solution:
     def minSwaps(self, s: str):

@@ -7,9 +7,6 @@ Output : -1 -1 -7 -15 -15 0
 """
 
 
-from tkinter.tix import Tree
-
-
 class Solution:
     def firstNegative(self, nums, k):
         """

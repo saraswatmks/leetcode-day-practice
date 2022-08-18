@@ -1,4 +1,7 @@
 """
+
+This is a backtracking question.
+
 Given two integers n and k, return all possible combinations of k numbers out of the range [1, n].
 
 Input: n = 4, k = 2

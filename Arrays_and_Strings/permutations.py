@@ -18,8 +18,8 @@ class Solution:
                 print(f"{i=}, {nums=}, {first=}, {output=}")
                 nums[first], nums[i] = nums[i], nums[first]
                 backtrack(first + 1)
+                nums[i], nums[first] = nums[first], nums[i]
                 # this line is doing backtracking
-                                                                                                                                                                                                          
 
         n = len(nums)
         output = []

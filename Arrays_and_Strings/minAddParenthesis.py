@@ -16,7 +16,7 @@ class Solution:
             bal += 1 if char == "(" else -1
             if bal == -1:
                 ans += 1
-                bal += 1
+                bal = 0
         return ans + bal
 
 

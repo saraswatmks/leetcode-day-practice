@@ -72,6 +72,9 @@ class Solution:
 
         The question requires the minimum number of coins, so you need to find a shortest path, hence you need to use BFS.
 
+        Time Complexity: O(len(coins) * amount)
+        Space Complexity: O(amount)
+
         """
         if amount == 0:
             return 0
