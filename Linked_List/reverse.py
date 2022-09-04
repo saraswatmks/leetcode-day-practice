@@ -6,18 +6,8 @@ https://leetcode.com/problems/reverse-linked-list/
 
 # 1 > 2 > 3 > 4 > 5 -> null
 #
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
 
-
-def list_to_link(lst):
-    """Takes a Python list and returns a Link with the same elements."""
-    if len(lst) == 1:
-        return ListNode(lst[0])
-    return ListNode(lst[0], list_to_link(lst[1:]))  # <<<< RECURSIVE
-
+from utils import list_to_link, ListNode
 
 class Solution:
     def reverseList(self, head: ListNode):

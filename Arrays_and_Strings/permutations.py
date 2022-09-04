@@ -50,6 +50,19 @@ class Solution:
         return res
 
 
+    def permutewithdfs2(self, nums):
+        res = []
+        def dfs(nums, tmp, res):
+            if not nums:
+                res.append(tmp)
+                return
+            for i in range(len(nums)):
+                dfs(nums[:i] + nums[i+1:], tmp + [nums[i]], res)
+
+        dfs(nums, [], res)
+        return res
+
+
 if __name__ == "__main__":
     nums = [1, 2, 3]
     # sol = Solution().permutewithdfs(nums)

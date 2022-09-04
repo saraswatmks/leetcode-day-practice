@@ -9,6 +9,7 @@ https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 
 """
 
+from collections import deque
 
 class Solution:
     def letterCombinations(self, digits):
@@ -87,6 +88,27 @@ class Solution:
 
         dfs(digits, 0, "")
         return res
+    
+    def letterCombinations3(self, digits: str):
+        """
+        This is BFS solution.
+        
+        Time Complexity: O(4 ^ N)
+        Space Complexity: O(N)
+        """
+        if digits == "":
+            return []
+        d = {1: '', 2: 'abc',3: 'def',4: 'ghi',5: 'jkl',6: 'mno',7: 'pqrs',8: 'tuv',9: 'wxyz'}
+        q = deque(d[int(digits[0])])
+
+        for i in range(1, len(digits)):
+            s = len(q)
+            while s:
+                out = q.popleft()
+                for j in d[int(digits[i])]:
+                    q.append(out+j)
+                s -= 1
+        return q
 
 
 if __name__ == "__main__":
@@ -94,4 +116,6 @@ if __name__ == "__main__":
     sol = Solution().letterCombinations(digits)
     print(sol)
     sol = Solution().letterCombinationdfs2(digits)
+    print(sol)
+    sol = Solution().letterCombinations3(digits)
     print(sol)

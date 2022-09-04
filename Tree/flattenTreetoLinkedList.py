@@ -79,3 +79,25 @@ class Solution:
             curr = curr.right
 
         return root
+
+    def flattenThree(self, root):
+        """
+        This is using recursion. Reverse Preorder Traversal (RLN)
+
+        Time Complexity: O(N)
+        Space Complexity: O(N)
+        """
+
+        prev = None
+        def flatten(node):
+            nonlocal prev
+            if not node:
+                return
+            flatten(node.right)
+            flatten(node.left)
+            node.right = prev
+            node.left = None
+            prev = node
+    
+        flatten(root)
+        return root

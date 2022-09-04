@@ -13,9 +13,6 @@ Output: false
 """
 
 # Definition for a binary tree node.
-from multiprocessing.connection import answer_challenge
-
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -37,7 +34,6 @@ class Solution:
             inOrder(node.left, output)
             output.append(node.val)
             inOrder(node.right, output)
-            pass
         # this fills the output list with inorder traversal values from the tree
         inOrder(root, output)
 
@@ -70,6 +66,28 @@ class Solution:
         return isvalid(root, float("-inf"), float("inf"))
 
 
+    def validateTreeThree(self, root: TreeNode):
+        """
+        Follows a bottom up strategy. In order traversal.
+
+        Time Complexity: O(N)
+        Space Complexity: O(N)
+        """
+
+        prev = None
+        def dfs(node):
+            if not node:
+                return True
+            
+            if not dfs(node.left):
+                return False
+
+            if prev and node.val <= prev:
+                return False
+            prev = node.val
+            return dfs(node.right)
+
+        return dfs(root)
 
 
 

@@ -4,22 +4,16 @@ https://leetcode.com/problems/remove-linked-list-elements/
 
 """
 
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
 # val = 2
 # 1 > 2 > 3 > 4
 # 1 > 3 > 4
 
+from utils import ListNode, list_to_link, print_ll
 
 class Solution:
     def removeElements(self, head: ListNode, val: int):
         """
-        Time complexity: O(n)
+        Time complexity: O(N)
         Space complexity: O(1)
         """
         if not head:
@@ -37,3 +31,9 @@ class Solution:
                 prev = curr
             curr = curr.next
         return dummy.next
+
+if __name__ == "__main__":
+    ll = [7,7,7,7]
+    ll = list_to_link(ll)
+    sol = Solution().removeElements(ll, 7)
+    print_ll(sol)
