@@ -3,8 +3,10 @@ Remove duplicates from a sorted / unsorted list.
 https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 https://leetcode.com/problems/remove-duplicates-from-an-unsorted-linked-list/
 
-"""
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
 
+"""
 
 from typing import List
 

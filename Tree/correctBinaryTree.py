@@ -19,6 +19,7 @@ class Solution:
         seen = set()
 
         def dfs(root):
+            # we traverse from right to left
             # this is invalid node
             if not root or (root.right and root.right.val in seen):
                 return
@@ -50,19 +51,14 @@ class Solution:
                         return root
                     tmp.append(node.right)
                     seen.add(node.right.val)
-                
+
                 if node.left:
                     if node.left.right and node.left.right.val in seen:
                         node.left = None
                         return root
                     tmp.append(node.left)
                     seen.add(node.left.val)
-                
+
                 arr = tmp[:]
-        
+
         return root
-
-
-
-
-

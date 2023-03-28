@@ -1,8 +1,12 @@
 """
 Find the continuous subarray that sums upto multiple of k.
+A good subarray is a subarray where:
+
+    its length is at least two, and
+    the sum of the elements of the subarray is a multiple of k.
 
 Input: nums = [23,2,4,6,7], k = 6
-Output: true
+Output: true (multiple of k are 6, 12, 24 ...)
 
 https://leetcode.com/problems/continuous-subarray-sum/
 """
@@ -38,12 +42,14 @@ class Solution:
 
 
 if __name__ == "__main__":
-    nums = [23, 2, 4, 6, 7]
-    k = 6
+    # nums = [23, 2, 6, 4, 7]
+    # k = 6
     # sol = Solution().checkSubarraySum(nums, k)
     # print(sol)
     # nums = [24, 1, 1, 1, 1]
-    nums = [1, 2, 4, 6]
+    # nums = [1, 2, 4, 6]
+    # nums = [23, 2, 6, 4, 7]
+    nums = [23, 2, 2, 1, 2]
     k = 6
     sol = Solution().checkSubarraySum(nums, k)
     print(sol)

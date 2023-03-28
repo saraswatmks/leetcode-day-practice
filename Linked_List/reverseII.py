@@ -23,7 +23,7 @@ class Solution:
         if not head or left == right:
             return head
 
-        p = dummy = ListNode(None)
+        p = dummy = ListNode(-1)
         dummy.next = head
 
         for i in range(left - 1):
@@ -36,5 +36,5 @@ class Solution:
             p.next = tail.next
             tail.next = tail.next.next
             p.next.next = tmp
-        
+
         return dummy.next

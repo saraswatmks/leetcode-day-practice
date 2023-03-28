@@ -1,7 +1,9 @@
 """
 This is a backtracking question.
 
-Given a list of integers, find the combination of nums which sum up to the target value.
+Given a list of candidates, find the combination of nums which sum up to the target value.
+The list might have duplicate numbers. 
+Each number in candidates may only be used once in the combination.
 
 Input: candidates = [10,1,2,7,6,1,5], target = 8
 Output: 

@@ -1,21 +1,22 @@
 """
-
 This is a backtracking question.
 
 Given an array of integers, return list of numbers which sum up to target
 
 Input: candidates = [2,3,6,7], target = 7
 Output: [[2,2,3],[7]]
-
 """
 
 
 class Solution:
-    def combinationSumI(self, nums: list, target: int):
+    def solutionI(self, nums: list, target: int):
         """
-        Time Complexity: O(k * 2 ^ target)
+        Complexity explained : https://leetcode.com/problems/combination-sum/solutions/1755084/Detailed-Time-and-Space-Complecity-analysisc++javabacktracking/
+        TLDR; we can either take or leave each candidate, we have two options.
+        Time Complexity: O(k * 2 ^ t)
+            t -> target / element  eg: (7/2, 7/3) <- this is height of the recursive tree per element
             k -> average length of the combinations
-        Space Complexity:
+        Space Complexity: length of longest combination
         """
         ans = []
 
@@ -35,7 +36,7 @@ class Solution:
         dfs(target, [], 0)
         return ans
 
-    def combinationSumII(self, nums: list, target: int):
+    def solutionII(self, nums: list, target: int):
         """
         Time Complexity: O(k * 2 ^ target)
             k -> average length of the combinations
@@ -61,5 +62,5 @@ class Solution:
 if __name__ == "__main__":
     candidates = [2, 3, 6, 7]
     target = 7
-    sol = Solution().combinationSumI(candidates, target)
+    sol = Solution().solutionI(candidates, target)
     print(sol)

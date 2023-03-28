@@ -8,11 +8,10 @@ output: [5, 6]
 1. Brute force O(n2)
 2. Sort & Binary Search O(nlogn)
 
-
 """
 
-from typing import List
 import bisect
+from typing import List
 
 
 class Solution:

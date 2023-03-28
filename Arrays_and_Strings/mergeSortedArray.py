@@ -10,7 +10,10 @@ output: [1,2,2,3,5,6]
 
 class Solution:
     def mergeSorted(self, arr1: list, arr2: list, m: int, n: int):
-
+        """
+        Time Complexity: O(k) where k is max length among both array.
+        Space Complexity: O(1) because we are reusing space from arr1.
+        """
         # zero index
         last = m + n - 1
         while m > 0 and n > 0:

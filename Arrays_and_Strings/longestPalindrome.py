@@ -11,10 +11,10 @@ Output: "bab"
 class Solution:
     def longestPalindrome(self, s: str):
         """
-        Time complexity: O(n2)
+        Time complexity: O(n2) because in strings like 'aaaaaa' it will go through each string
         Space complexity: O(n2)
         """
-        n = len(s)   
+        n = len(s)
         dp = [[False] * n for _ in range(n)]
         for i in range(n):
             dp[i][i] = True
@@ -32,7 +32,8 @@ class Solution:
                             longest_palindrome_start = start
                             longest_palindrome_len = palindrome_len
         return s[
-            longest_palindrome_start : longest_palindrome_start + longest_palindrome_len
+            longest_palindrome_start : longest_palindrome_start
+            + longest_palindrome_len
         ]
 
     def longestPalindrome2(self, s: str):
@@ -59,7 +60,8 @@ class Solution:
                 longest_palindrome_start = left + 1
 
         return s[
-            longest_palindrome_start : longest_palindrome_start + longest_palindrome_len
+            longest_palindrome_start : longest_palindrome_start
+            + longest_palindrome_len
         ]
 
     def longestPalindrome3(self, s: str):

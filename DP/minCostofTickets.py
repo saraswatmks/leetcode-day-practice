@@ -18,23 +18,24 @@ class Solution:
         """
         Bottom Up approach.
 
-        Time Complexity:
-        Space Complexity:
+        Time Complexity: O(days * cost)
+        Space Complexity: O(days)
         """
         travel_days = set(days)
         last_travel_day = days[-1]
 
         dp = [0 for _ in range(last_travel_day + 1)]
 
-        for day in range(1, last_travel_day+1):
+        for day in range(1, last_travel_day + 1):
             if day not in travel_days:
                 # if not traveling, cost until previous day
                 dp[day] = dp[day - 1]
             else:
-                dp[day] = min(dp[day - 1] + costs[0],
-                              dp[max(day - 7, 0)] + costs[1],
-                              dp[max(day - 30, 0)] + costs[2]
-                              )
+                dp[day] = min(
+                    dp[day - 1] + costs[0],
+                    dp[max(day - 7, 0)] + costs[1],
+                    dp[max(day - 30, 0)] + costs[2],
+                )
 
         return dp[last_travel_day]
 

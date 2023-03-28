@@ -27,8 +27,9 @@ class Solution:
                 d = intervals[j][1]
                 if b >= c:
                     ans.append([a, max(b, d)])
-                    break
-            ans.append([a, b])
+                else:
+                    ans.append([c, d])
+                break
         return ans
 
     def mergeIntervalsTwo(self, intervals: List[List[int]]):

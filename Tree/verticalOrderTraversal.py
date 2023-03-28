@@ -12,7 +12,8 @@ Input: root = [3,9,20,null,null,15,7]
 Output: [[9],[3,15],[20],[7]]
 
 """
-from collections import defaultdict, deque
+from collections import defaultdict
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -32,12 +33,12 @@ class Solution:
         """
         columnTable = defaultdict(list)
 
-        queue = deque([(root, 0)])
+        queue = [(root, 0)]
 
         while queue:
-            node, column = queue.popleft()
+            node, column = queue.pop(0)
 
-            if node is not None:
+            if node:
                 columnTable[column].append(node.val)
                 queue.append((node.left, column - 1))
                 queue.append((node.right, column + 1))
@@ -57,12 +58,12 @@ class Solution:
 
         columnTable = defaultdict(list)
         minColumn = maxColumn = 0
-        queue = deque([(root, 0)])
+        queue = [(root, 0)]
 
         while queue:
-            node, column = queue.popleft()
+            node, column = queue.pop(0)
 
-            if node is not None:
+            if node:
                 columnTable[column].append(node.val)
                 minColumn = min(minColumn, column)
                 maxColumn = max(maxColumn, column)
@@ -91,8 +92,8 @@ class Solution:
         min_column = max_column = 0
 
         def dfs(node, row, column):
-            if node is not None:
-                global min_column, max_column
+            if node:
+                nonlocal min_column, max_column
                 columnTable[column].append((row, node.val))
                 min_column = min(min_column, column)
                 max_column = max(max_column, column)

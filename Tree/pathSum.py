@@ -8,9 +8,6 @@ Output: true # 5 + 4 + 11 + 2
 """
 
 
-from tarfile import TarError
-
-
 class Solution:
     def hasPathSumOne(self, root, targetSum):
         """

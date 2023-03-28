@@ -34,8 +34,8 @@ class Solution:
             if node is None:
                 return 0
 
-            gain_on_left = max(gain_on_left(node.left), 0)
-            gain_on_right = max(gain_on_right(node.right), 0)
+            gain_on_left = max(get_max_gain(node.left), 0)
+            gain_on_right = max(get_max_gain(node.right), 0)
 
             current_max_path = node.val + gain_on_left + gain_on_right
             max_path = max(current_max_path, max_path)

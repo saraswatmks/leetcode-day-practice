@@ -1,5 +1,5 @@
 """
-Given a sorted array, find two numbers which sum to target.
+Given a sorted array, find two numbers (return their index) which sum to target.
 
 https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 

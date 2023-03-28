@@ -1,5 +1,5 @@
 """
-Find longest sequence in the array
+Find longest sequence length in the array
 https://leetcode.com/problems/longest-consecutive-sequence/
 
 Input: [100,4,200,1,3,2]
@@ -74,7 +74,7 @@ class Solution:
                     current_streak = 1
         return max(longest_streak, current_streak)
 
-    def longestSequence3(self, nums):
+    def longestSequence4(self, nums):
         """
         Using hashmap.
         Time Complexity: O(n)

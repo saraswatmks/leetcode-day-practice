@@ -1,5 +1,7 @@
 """
-Building with an ocean view.
+Building with an ocean view. The ocean is to the right of the buildings. A building has an ocean view if the building can see the ocean without obstructions. 
+Formally, a building has an ocean view if all the buildings to its right have a smaller height.
+
 https://leetcode.com/problems/buildings-with-an-ocean-view/
 
 Input: heights = [4,2,3,1]

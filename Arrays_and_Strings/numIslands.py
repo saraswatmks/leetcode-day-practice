@@ -15,8 +15,8 @@ Output: 1
 """
 
 
-from collections import deque
 import queue
+from collections import deque
 
 
 class Solution:
@@ -102,13 +102,6 @@ if __name__ == "__main__":
 
     sol = Solution().numIslandsOne(grid)
     print(sol)
-
-    grid = [
-        ["1", "1", "0", "0", "0"],
-        ["1", "1", "0", "0", "0"],
-        ["0", "0", "1", "0", "0"],
-        ["0", "0", "0", "1", "1"],
-    ]
 
     sol = Solution().numIslandsTwo(grid)
     print(sol)

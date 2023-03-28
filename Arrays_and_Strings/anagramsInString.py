@@ -1,7 +1,7 @@
 """
 This is a sliding window based question. Fixed window.
 
-Start index of anagrams in a string.
+Given two strings s and p, return an array of all the start indices of p's anagrams in s
 https://leetcode.com/problems/find-all-anagrams-in-a-string/
 
 Input: s = "cbaebabacd", p = "abc"
@@ -94,6 +94,28 @@ class Solution:
                 j += 1
         return output
 
+    def findAnagramsFour(self, s: str, p: str):
+        """
+        This is also sliding window.
+        """
+        ns, np = len(s), len(p)
+        if ns < np:
+            return []
+
+        i = 0
+        ans = []
+        p_count = Counter(p)
+        for j in range(ns):
+
+            if j - i + 1 == np:
+                # get substring
+                s_count = Counter(s[i : i + (j - i + 1)])
+                if s_count == p_count:
+                    ans.append(i)
+                i += 1
+
+        return ans
+
 
 if __name__ == "__main__":
     s = "cbaebabacd"
@@ -103,4 +125,6 @@ if __name__ == "__main__":
     sol = Solution().findAnagramsTwo(s, p)
     print(sol)
     sol = Solution().findAnagramsThree(s, p)
+    print(sol)
+    sol = Solution().findAnagramsFour(s, p)
     print(sol)
