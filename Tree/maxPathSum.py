@@ -29,18 +29,17 @@ class Solution:
         """
         max_path = float("-inf")
 
-        def get_max_gain(node):
+        def dfs(node):
             nonlocal max_path
             if node is None:
                 return 0
 
-            gain_on_left = max(get_max_gain(node.left), 0)
-            gain_on_right = max(get_max_gain(node.right), 0)
+            left = dfs(node.left)
+            right = dfs(node.right)
 
-            current_max_path = node.val + gain_on_left + gain_on_right
-            max_path = max(current_max_path, max_path)
+            max_path = max(max_path, node.val + left + right)
 
-            return node.val + max(gain_on_left, gain_on_right)
+            return node.val + max(left, right, 0)
 
-        get_max_gain(root)
+        dfs(root)
         return max_path

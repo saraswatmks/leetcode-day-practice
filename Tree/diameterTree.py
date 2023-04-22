@@ -31,6 +31,7 @@ class Solution:
         diameter = 0
 
         def dfs(node):
+            nonlocal diameter
             if not node:
                 return 0
 

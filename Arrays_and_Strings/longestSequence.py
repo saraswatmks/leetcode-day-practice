@@ -77,7 +77,7 @@ class Solution:
     def longestSequence4(self, nums):
         """
         Using hashmap.
-        Time Complexity: O(n)
+        Time Complexity: O(n^2)
         Space Complexity: O(1)
         """
         longest = 0

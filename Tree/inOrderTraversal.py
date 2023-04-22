@@ -9,9 +9,6 @@ Output: [1,3,2]
 """
 
 # Definition for a binary tree node.
-from sklearn.utils import resample
-
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val

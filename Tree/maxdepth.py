@@ -31,7 +31,7 @@ class Solution:
 
     def maxdepth2(self, root: TreeNode):
         """
-        This is an iterative approach.
+        This is an iterative BFS approach.
         Time Complexity: O(n)
         Space Complexity: O(n) if tree_is_unbalanced else O(logn)
         """
@@ -49,7 +49,7 @@ class Solution:
                 stack.append((curr_depth + 1, root.right))
 
         return depth
-    
+
     def maxdepth3(self, root: TreeNode):
         """
         Keep increasing depth as we go down.
@@ -63,7 +63,7 @@ class Solution:
             # base case
             if not node:
                 return depth
-            
+
             left = dfs(node.left, depth + 1)
             right = dfs(node.right, depth + 1)
 

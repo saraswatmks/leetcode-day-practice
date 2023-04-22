@@ -10,7 +10,10 @@ Output: 3
 
 class Solution:
     def minAddMakeValid(self, s: str):
-
+        """
+        Time Complexity: O(n)
+        Space Complexity: O(1)
+        """
         ans = bal = 0
         for char in s:
             bal += 1 if char == "(" else -1

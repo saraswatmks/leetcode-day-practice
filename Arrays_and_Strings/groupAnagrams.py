@@ -27,7 +27,7 @@ class Solution:
             else:
                 dct[s].append(word)
 
-        return dct.values()
+        return list(dct.values())
 
     def groupAnagrams2(self, strs: List[str]):
         """

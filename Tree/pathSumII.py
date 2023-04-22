@@ -16,22 +16,21 @@ class Solution:
         Time Complexity: O(N)
         Space Complexity: O(H) <- height of the tree
         """
-
-        def solve(node, curr_sum, tmplist):
-            nonlocal res
-            if node:
-                curr_sum += node.val
-                tmplist.append(node.val)
-                if not node.left and not node.right and curr_sum == targetSum:
-                    res.append(tmplist[:])
-                else:
-                    solve(node.left, curr_sum, tmplist)
-                    solve(node.right, curr_sum, tmplist)
-                # this line does backtracking.
-                tmplist.pop()
-
         res = []
-        solve(root, 0, [])
+
+        def dfs(node, target, tmplist):
+            if not node:
+                return
+
+            if not node.left and not node.right and target == node.data:
+                tmplist.append(node.data)
+                res.append(tmplist[:])
+
+            dfs(node.left, target - node.data, tmplist + [node.data])
+            dfs(node.right, target - node.data, tmplist + [node.data])
+
+        dfs(root, targetSum, [])
+        return res
 
     def hasPathSumTwo(self, root, targetSum):
         """
@@ -51,7 +50,11 @@ class Solution:
             if not node.left and not node.right and curr_sum == targetSum:
                 res.append(tmplst[:])
             if node.left:
-                queue.append((node.left, curr_sum + node.left, tmplst + [node.left]))
+                queue.append(
+                    (node.left, curr_sum + node.left, tmplst + [node.left])
+                )
             if node.right:
-                queue.append((node.right, curr_sum + node.right, tmplst + [node.right]))
+                queue.append(
+                    (node.right, curr_sum + node.right, tmplst + [node.right])
+                )
         return res

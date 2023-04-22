@@ -1,9 +1,24 @@
 """
-Traverse through tree path and sum the numbers
+Traverse through tree path and sum the numbers,
+You are given the root of a binary tree containing digits from 0 to 9 only.
+
+Each root-to-leaf path in the tree represents a number.
+For example, the root-to-leaf path 1 -> 2 -> 3 represents the number 123.
+
+Return the total sum of all root-to-leaf numbers. Test cases are generated so that the answer will fit in a 32-bit integer.
 https://leetcode.com/problems/sum-root-to-leaf-numbers/
 
 Input: root = [1,2,3]
 Output: 25 # 12 + 13
+
+Input: root = [4,9,0,5,1]
+Output: 1026
+
+Explanation:
+The root-to-leaf path 4->9->5 represents the number 495.
+The root-to-leaf path 4->9->1 represents the number 491.
+The root-to-leaf path 4->0 represents the number 40.
+Therefore, sum = 495 + 491 + 40 = 1026.
 """
 
 # Definition for a binary tree node.
@@ -15,7 +30,7 @@ class TreeNode:
 
 
 class Solution:
-    def treeSumOne(root: TreeNode):
+    def treeSumOne(self, root: TreeNode):
         """
         This is preorder solution or recursive dfs.
 

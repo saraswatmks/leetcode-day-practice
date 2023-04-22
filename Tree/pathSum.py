@@ -1,5 +1,6 @@
 """
-Check if the path exists which sums up to given targetSum.
+Given a binary tree and a sum, determine if the tree has a root-to-leaf path
+    such that adding up all the values along the path equals the given sum.
 https://leetcode.com/problems/path-sum/
 
 Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
@@ -44,6 +45,7 @@ class Solution:
         targetSum -= root.val
         if not root.left and not root.right and targetSum == 0:
             return True
-        return self.hasPathSumTwo(root.left, targetSum) or self.hasPathSumTwo(
-            root.right, targetSum
-        )
+
+        left = self.hasPathSumTwo(root.left, targetSum)
+        right = self.hasPathSumTwo(root.right, targetSum)
+        return left or right

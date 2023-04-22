@@ -6,8 +6,6 @@ Input: s = "lee(t(c)o)de)"
 Output: "lee(t(c)o)de"
 """
 
-from re import L
-
 
 class Solution:
     def minRemoveToMakeValid1(self, s: str):

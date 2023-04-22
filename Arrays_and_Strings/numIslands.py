@@ -74,19 +74,18 @@ class Solution:
                 if grid[i][j] == "1":
                     count += 1
                     grid[i][j] = "0"
-                    queue = deque()
-                    queue.append((i, j))
+                    queue = [[i, j]]
 
                     while queue:
-                        r, c = queue.popleft()
+                        r, c = queue.pop(0)
                         for dx, dy in directions:
                             if (
                                 0 <= r + dx < m
                                 and 0 <= c + dy < n
                                 and grid[r + dx][c + dy] == "1"
                             ):
+                                queue.append([r + dx, c + dy])
                                 grid[r + dx][c + dy] = "0"
-                                queue.append((r + dx, c + dy))
 
         return count
 

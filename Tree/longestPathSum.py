@@ -82,18 +82,18 @@ class Solution:
         q.append((root, 0, root.data))
 
         while q:
-            curr, depth, node_sum = q.pop(0)
+            node, depth, node_sum = q.pop(0)
             if depth > maxdepth:
                 maxdepth = depth
                 maxSum = node_sum
-            elif depth == maxdepth and node_sum > maxSum:
+            elif depth == maxdepth and node_sum >= maxSum:
                 maxSum = node_sum
 
-            if curr.left:
-                q.append((curr.left, depth + 1, curr.left.data + node_sum))
+            if node.left:
+                q.append((node.left, depth + 1, node.left.data + node_sum))
 
-            if curr.right:
-                q.append((curr.right, depth + 1, curr.right.data + node_sum))
+            if node.right:
+                q.append((node.right, depth + 1, node.right.data + node_sum))
 
         return maxSum
 

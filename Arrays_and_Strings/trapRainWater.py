@@ -11,9 +11,6 @@ Output: 9
 """
 
 
-from turtle import left
-
-
 class Solution:
     def trapWaterOne(self, height: list):
         """
@@ -61,9 +58,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+    # height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+    # sol = Solution().trapWaterOne(height)
+    # print(sol)
+    # height = [4, 2, 8, 0, 7, 3, 2, 5]
+    height = [4, 2, 0, 3, 2, 5]
     sol = Solution().trapWaterOne(height)
-    print(sol)
-    height = [4, 2, 8, 0, 7, 3, 2, 5]
-    sol = Solution().trapWaterTwo(height)
     print(sol)

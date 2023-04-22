@@ -33,6 +33,7 @@ class Solution:
                 else:
                     # we found the triplets
                     res.append((nums[left], nums[mid], nums[r]))
+                    # remove duplicate numbers since we have already included mid and right value in the discovered triplet
                     while mid < r and nums[mid] == nums[mid + 1]:
                         mid += 1
                     while mid < r and nums[r] == nums[r - 1]:
@@ -44,6 +45,6 @@ class Solution:
 
 if __name__ == "__main__":
     nums = [-1, 0, 1, 2, -1, -4]
-    nums = [-2, 0, 0, 2, 2]
+    # nums = [-2, 0, 0, 2, 2]
     sol = Solution().threeSum(nums)
     print(sol)
