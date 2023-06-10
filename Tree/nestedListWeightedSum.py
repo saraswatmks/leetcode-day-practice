@@ -11,6 +11,7 @@ Output: 27 (1*1 + 2 * 4 + 3 * 6)
 """
 from collections import deque
 
+
 class Solution:
     def depthSumOne(self, s):
         """
@@ -56,9 +57,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = [[1, 1], 2, [1, 1]]
+    s = [1, [4, [6]]]
     sol = Solution().depthSumOne(s)
     print(sol)
-    s = [1, [4, [6]]]
+    s = [[1, 1], 2, [1, 1]]
     sol = Solution().depthSumTwo(s)
     print(sol)

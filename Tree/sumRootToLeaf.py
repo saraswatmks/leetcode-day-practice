@@ -75,5 +75,3 @@ class Solution:
                     stack.append((root.left, curr_num))
 
         return root_to_leaf
-
-        return

@@ -40,6 +40,7 @@ class Solution:
         maxarea = 0
         nums.append(0)  # handle the calculation for last index
         for i in range(len(nums)):
+            # this is width of rectangles being tracked
             last_width = len(nums) + 1
             # height is decreasing, need to calculate area
             while len(hstack) != 0 and hstack[-1] > nums[i]:
@@ -51,6 +52,7 @@ class Solution:
             # heights are increasing, could potentially find a taller rectangle
             if len(hstack) == 0 or hstack[-1] < nums[i]:
                 hstack.append(nums[i])
+                # here we use last_width of the horizontal rectangle which can get formed.
                 pstack.append(min(last_width, i))
 
         return maxarea

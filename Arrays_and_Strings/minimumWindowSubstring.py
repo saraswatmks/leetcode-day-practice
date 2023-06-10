@@ -22,7 +22,6 @@ class Solution:
         """
         target_letter_counts = Counter(t)
         start = 0
-        end = 0
         min_window = ""
         target_len = len(t)
 

@@ -8,7 +8,7 @@ Output: 2 # 4,3
 
 
 class Solution:
-    def minSubArrayLenOne(self, target: int, nums: list) -> int:
+    def solutionOne(self, target: int, nums: list) -> int:
         """
         This is brute force approach.
 
@@ -25,34 +25,36 @@ class Solution:
                     min_len = min(min_len, j - i + 1)
         return min_len
 
-    def minSubArrayLenTwo(self, target: int, nums: list) -> int:
+    def solutionTwo(self, target: int, nums: list) -> int:
         """
         This is sliding window approach.
+        This is O(N) because the inner while loop is independent of outer for loop
 
         Time Complexity: O(N)
         Space Complexity: O(1)
         """
-        n = len(nums)
-        INF = n + 1
-        windowSum = 0
-        l = 0
-        ans = INF
+        l = r = 0
+        curr = 0
+        res = len(nums)
 
-        for r in range(n):
-            windowSum += nums[r]
-            while windowSum >= target:
-                ans = min(ans, r - l + 1)
-                windowSum -= nums[l]
+        while r < len(nums):
+            curr += nums[r]
+
+            while curr >= target:
+                res = min(res, r - l + 1)
+                curr -= nums[l]
                 l += 1
-        return ans if ans != INF else 0
+            r += 1
+
+        return res
 
 
 if __name__ == "__main__":
     target = 4
     nums = [1, 4, 4]
-    sol = Solution().minSubArrayLenOne(target, nums)
+    sol = Solution().solutionOne(target, nums)
     print(sol)
     target = 7
     nums = [2, 3, 1, 2, 4, 3]
-    sol = Solution().minSubArrayLenTwo(target, nums)
+    sol = Solution().solutionTwo(target, nums)
     print(sol)

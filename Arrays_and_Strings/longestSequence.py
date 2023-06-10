@@ -86,7 +86,7 @@ class Solution:
             if num - 1 not in nums:
                 current_num = num
                 current_len = 1
-                while current_num + 1 in nums:
+                while current_num + 1 in set(nums):
                     current_num += 1
                     current_len += 1
                 longest = max(longest, current_len)

@@ -1,5 +1,5 @@
 """
-Find longest palindrome.
+Find longest palindrome substring.
 https://leetcode.com/problems/longest-palindromic-substring/
 
 Input: s = "babad"

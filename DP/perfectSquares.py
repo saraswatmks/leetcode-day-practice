@@ -87,8 +87,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    n = 15
-    s = Solution().solutionIII(n)
+    n = 12
+    s = Solution().numSquares(n)
+    # s = Solution().solutionIII(n)
     # print(s)
     # s = Solution().numSquaresMemo(n)
     print(s)

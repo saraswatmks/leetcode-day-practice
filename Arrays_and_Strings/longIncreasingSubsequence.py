@@ -29,6 +29,8 @@ class Solution:
 
     def solutionTwo(self, nums: list):
         """
+        Perform binary search on ans object.
+
         Time Complexity: O(n * logn)
         Space Complexty: O(n)
         """

@@ -1,9 +1,13 @@
 """
+Find the longest common subsequence.
+https://leetcode.com/problems/longest-common-subsequence/
 
 This is a dp problem.
 
-Find the longest common subsequence.
-https://leetcode.com/problems/longest-common-subsequence/
+Input: text1 = "abcde", text2 = "ace" 
+Output: 3  
+Explanation: The longest common subsequence is "ace" and its length is 3.
+
 """
 from typing import List
 

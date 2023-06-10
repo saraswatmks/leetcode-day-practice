@@ -19,6 +19,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 class Solution:
     def validateTreeOne(self, root: TreeNode):
         """
@@ -28,22 +29,24 @@ class Solution:
         Space Complexity: O(N)
         """
         output = []
-        def inOrder(node, output):
+
+        def inOrder(node):
             if not node:
                 return
-            inOrder(node.left, output)
+            inOrder(node.left)
             output.append(node.val)
-            inOrder(node.right, output)
+            inOrder(node.right)
+
         # this fills the output list with inorder traversal values from the tree
-        inOrder(root, output)
+        inOrder(root)
 
         # check if the order is valid
         for i in range(1, len(output)):
-            if output[i-1] >= output[i]:
+            if output[i - 1] >= output[i]:
                 return False
-        
+
         return True
-    
+
     def validateTreeTwo(self, root: TreeNode):
         """
         Follows a strategy to track upper and lower bound at each node.
@@ -52,7 +55,6 @@ class Solution:
         Space Complexity: O(N)
         """
 
-
         def isvalid(root, low, high):
             if not root:
                 return True
@@ -60,11 +62,11 @@ class Solution:
                 return False
             # for left, the upper limit is the root node val
             # for right, the lower limit is the root node val.
-            return isvalid(root.left, low, root.val) and isvalid(root.right, root.val, high)
-            
+            return isvalid(root.left, low, root.val) and isvalid(
+                root.right, root.val, high
+            )
 
         return isvalid(root, float("-inf"), float("inf"))
-
 
     def validateTreeThree(self, root: TreeNode):
         """
@@ -75,10 +77,11 @@ class Solution:
         """
 
         prev = None
+
         def dfs(node):
             if not node:
                 return True
-            
+
             if not dfs(node.left):
                 return False
 
@@ -88,8 +91,3 @@ class Solution:
             return dfs(node.right)
 
         return dfs(root)
-
-
-
-
-        

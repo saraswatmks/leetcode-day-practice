@@ -37,7 +37,7 @@ class Solution:
             return 0
         # even number
         if n % 2 == 0:
-            return 1 + self.solutionOne(n / 2)
+            return 1 + self.solutionOne(n // 2)
         first = 1 + self.solutionOne(n - 1)
         second = 1 + self.solutionOne(n + 1)
         return min(first, second)
@@ -69,8 +69,38 @@ class Solution:
         dp = [-1] * (n + 2)
         return solve(n, dp)
 
+    def solutionThree(self, n):
+        """
+        BFS Solution.
+        Time Complexity: O(log n)
+        Space Complexity: O(log(n))
+        """
+        q = [n]
+        seen = set()
+        ans = 0
+
+        while q:
+            size = len(q)
+            for _ in range(size):
+                tmp = q.pop(0)
+
+                if tmp == 1:
+                    return ans
+                if tmp in seen:
+                    continue
+                seen.add(tmp)
+
+                if tmp % 2 != 0:
+                    q.append(tmp + 1)
+                    q.append(tmp - 1)
+                else:
+                    q.append(tmp // 2)
+            ans += 1
+
+        return ans
+
 
 if __name__ == "__main__":
     n = 15
-    s = Solution().solutionTwo(n)
+    s = Solution().solutionThree(n)
     print(s)
