@@ -2,6 +2,10 @@
 Sliding Window Problem.
 
 Flip the digits so each number in the string occurs alternatively
+
+Type-1: Remove the character at the start of the string s and append it to the end of the string.
+Type-2: Pick any character in s and flip its value, i.e., if its value is '0' it becomes '1' and vice-versa.
+
 https://leetcode.com/problems/minimum-number-of-flips-to-make-the-binary-string-alternating/description/
 
 Input: s = "111000"
@@ -57,5 +61,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = "111000"
+    # s = "111000"
+    s = "10111"
     print(Solution().solutionOne(s))

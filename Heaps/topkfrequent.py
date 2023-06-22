@@ -31,7 +31,7 @@ class Solution:
                 for num in bucket:
                     ans.append(num)
         return ans[:k]
-    
+
     def usingMaxHeap(self, nums, k):
         """
         Time Complexity: O(n) + O(k log N)
@@ -39,7 +39,7 @@ class Solution:
         """
         count = Counter(nums)
         s = [(-val, num) for num, val in count.items()]
-        res= []
+        res = []
         heapq.heapify(s)
         for i in range(k):
             res.append(heapq.heappop(s)[1])

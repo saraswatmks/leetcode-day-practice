@@ -11,7 +11,7 @@ Output: true
 class Solution:
     def wordSearchOne(self, board, word):
         """
-        Time Complexity: O(N * 3 ^ min(L, N))
+        Time Complexity: O(M * N * 4 ^ s) s -> s is len of word
         """
         rows = len(board)
         cols = len(board[0])

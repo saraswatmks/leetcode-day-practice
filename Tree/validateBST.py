@@ -79,6 +79,7 @@ class Solution:
         prev = None
 
         def dfs(node):
+            nonlocal prev
             if not node:
                 return True
 

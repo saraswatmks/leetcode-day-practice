@@ -1,7 +1,13 @@
 """
 Asked in Bloomberg.
 
-Another example would be [6,4,9,10,34,56,54] and output is 68. to explain it in a bit more detail 4 is the smallest weight, so we add 4 to thhe sum and remove it's adjacent numbers 6 and 9 from the list, in the next iteration we look at numbers 10, 34 and 10 is thhe smallest so we add 10 to the sum and remove 34 and next iteration we look at 56 and 54 and 54 is the smaller number so we add 54 to the sum and remove 56 so the total sum = 68
+Another example would be [6,4,9,10,34,56,54] and output is 68. 
+to explain it in a bit more detail 4 is the smallest weight, 
+so we add 4 to the sum and remove it's adjacent numbers 6 and 9 from the list, 
+in the next iteration we look at numbers 10, 
+34 and 10 is thhe smallest so we add 10 to the sum and remove 34 and next iteration 
+we look at 56 and 54 and 54 is the smaller number so we add 54 to the sum and remove 56 
+so the total sum = 68
 
 Input: [6,4,9,10,34,56,54]
 Output: 68

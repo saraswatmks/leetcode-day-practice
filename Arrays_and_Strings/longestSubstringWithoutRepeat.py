@@ -14,7 +14,27 @@ from collections import defaultdict
 
 
 class Solution:
-    def longestSubstringOne(self, s: str):
+    def longestSubstringmain(self, s: str):
+        """
+        This passes all testcases.
+        Time Complexity: O(n)
+        Space Complexity: O(n)
+        """
+        seen = {}
+        start = 0
+        maxlen = 0
+        for i, char in enumerate(s):
+            # start <= seen[char] -> check is start is behind the new char we have found
+            # if it is already ahead, then we dont do anythign
+            if char in seen and start <= seen[char]:
+                start = seen[char] + 1
+            else:
+                maxlen = max(maxlen, i - start + 1)
+
+            seen[char] = i
+        return maxlen
+
+    def longestSubstringOne(self, s: str):  # doesnt pass all testcases
         """
         Time Complexity: O(n)
         Space Complexity: O(1)
@@ -79,5 +99,5 @@ class Solution:
 if __name__ == "__main__":
     # s = "abcxabcbb"
     s = "tmmzuxt"
-    sol = Solution().longestSubstringThree(s)
+    sol = Solution().longestSubstringmain(s)
     print(sol)

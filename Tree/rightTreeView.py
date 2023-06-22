@@ -10,6 +10,7 @@ Output: [1,3,4]
 
 from collections import deque
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -61,7 +62,9 @@ class Solution:
             size, val = len(queue), 0
             for _ in range(size):
                 node = queue.popleft()
-                val = node.val
+                val = (
+                    node.val
+                )  # this was always get the right node value overwritten
                 if node.left:
                     queue.append(node.left)
                 if node.right:

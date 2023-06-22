@@ -20,24 +20,24 @@ class Solution:
         * Time complexity = InternalNodes in the RecursionTree   +   K * LeafNodes in RecursionTree
         *                 = (C(9,0) + C(9,1) + ... + C(9,K-1))   +   K * C(9,K)
         * In our solution, the worst case will happen when k = 8.
-           Then Total Time Complexity = O(574) which is O(1) or O(nCk)
+           Then Total Time Complexity = O(574) which is O(1) or O(nCk) // O(C(9,k))- > O(9^k)
         * Space Complexity = O(k) -> Depth of Recursion tree + Size of TempList
         """
 
         ans = []
 
-        def dfs(start, k, target, curr):
+        def dfs(arr, k, target, curr):
             if k == 0 and target == 0:
                 ans.append(curr[:])
                 return
 
-            if k == 0 or target <= 0:
+            if k < 0 or target < 0:
                 return
 
-            for i in range(start, n + 1):
-                dfs(start + 1, k - 1, target - i, curr + [i])
+            for i in range(len(arr)):
+                dfs(arr[i + 1 :], k - 1, target - arr[i], curr + [arr[i]])
 
-        dfs(1, k, n, [])
+        dfs(range(1, 10), k, n, [])
         return ans
 
 

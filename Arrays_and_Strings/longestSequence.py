@@ -77,19 +77,17 @@ class Solution:
     def longestSequence4(self, nums):
         """
         Using hashmap.
-        Time Complexity: O(n^2)
+        Time Complexity: O(N)
         Space Complexity: O(1)
         """
         longest = 0
-
+        nums = set(nums)
         for num in nums:
             if num - 1 not in nums:
-                current_num = num
-                current_len = 1
-                while current_num + 1 in set(nums):
+                current_num = num + 1
+                while current_num in set(nums):
                     current_num += 1
-                    current_len += 1
-                longest = max(longest, current_len)
+                longest = max(longest, current_num - num)
         return longest
 
 

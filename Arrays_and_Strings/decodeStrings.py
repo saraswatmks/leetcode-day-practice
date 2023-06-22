@@ -72,5 +72,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    s = "3[a]2[bc2[d]]"
+    s = "xxx3[a]2[bc2[d]]"
     print(Solution().solutionTwo(s))

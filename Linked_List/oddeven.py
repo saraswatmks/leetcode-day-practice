@@ -10,6 +10,7 @@ https://leetcode.com/problems/odd-even-linked-list/
 
 from utils import ListNode, list_to_link, print_ll
 
+
 class Solution:
     def oddEven1(self, head: ListNode):
         """
@@ -20,8 +21,8 @@ class Solution:
         """
         odd = head
         even = head.next
-        evenHead =head.next
-        
+        evenHead = head.next
+
         # we use even since it'll go null before odd nodes.
         while even and even.next:
 
@@ -30,13 +31,13 @@ class Solution:
 
             odd = odd.next
             even = even.next
-        
+
         odd.next = evenHead
         return head
 
 
 if __name__ == "__main__":
-    ll = [1,5,7,3,4,2,8]
+    ll = [1, 5, 7, 3, 4, 2, 8]
     ll = list_to_link(ll)
     sol = Solution().oddEven1(ll)
     print_ll(sol)

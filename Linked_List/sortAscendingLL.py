@@ -5,13 +5,15 @@ Input: head = [4,2,1,3]
 Output: [1,2,3,4]
 """
 
-from ast import List
-
 from utils import ListNode, list_to_link, print_ll
 
 
 class Solution:
     def solutionOne(self, head):
+        """
+        Time Complexity: O(n log n)
+        Space Complexity: O(n)
+        """
         # base case
         if not head or not head.next:
             return head

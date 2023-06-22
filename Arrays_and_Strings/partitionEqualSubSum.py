@@ -50,6 +50,27 @@ class Solution:
 
         return dp[n][s]
 
+    def solutionTwo(self, nums):
+        """
+        Time Complexity: O(nW) n-> len of nums, W -> sum of nums
+        Space Complexity: O(W) -> W -> sum of nums
+        """
+        s = sum(nums)
+        if s % 2 != 0:
+            return False
+
+        s = s // 2
+
+        # dp is the sum calculated to far, each index corresponds to a sum
+        # 0 will be set to True
+        dp = [True] + [False] * s
+
+        for num in nums:
+            for curr in range(s, num - 1, -1):
+                dp[curr] = dp[curr] or dp[curr - num]
+
+        return dp[-1]
+
 
 if __name__ == "__main__":
     nums = [1, 3, 4]
