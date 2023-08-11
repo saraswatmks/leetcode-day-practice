@@ -33,9 +33,9 @@ class Solution:
             nonlocal max_path
             if node is None:
                 return 0
-
-            left = dfs(node.left)
-            right = dfs(node.right)
+            # we only need 0 or positive numbers as sum, hence using max here
+            left = max(dfs(node.left),0)
+            right = max(dfs(node.right),0)
 
             max_path = max(max_path, node.val + left + right)
 
