@@ -26,3 +26,19 @@ class Solution:
 
         dfs(root)
         return ans
+
+    def solutionTwo(self, root, k):
+        '''Idea is that inorder traversal returns a sorted list.'''
+        res = []
+        # inorder traversal returns a sorted list
+        def dfs(node):
+            if not node:
+                return 
+            dfs(node.left)
+            if len(res) == k:
+                return 
+            res.append(node.val)
+            dfs(node.right)
+        dfs(root)
+        # print(f'{res=}')
+        return res[-1]
