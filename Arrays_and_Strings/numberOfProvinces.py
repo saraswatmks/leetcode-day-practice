@@ -4,7 +4,11 @@ This is a graph problem.
 Count the number of connected provinces. 
 https://leetcode.com/problems/number-of-provinces/description/
 
-Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
+Input: isConnected = 
+[[1,1,0],
+ [1,1,0],
+ [0,0,1]
+]
 Output: 2
 
 """

@@ -49,7 +49,6 @@ class Solution:
         _dfs(nums, [], res)
         return res
 
-
     def permutewithdfs2(self, nums):
         res = []
         def dfs(nums, tmp, res):
@@ -61,6 +60,27 @@ class Solution:
 
         dfs(nums, [], res)
         return res
+
+# draw tree 
+
+# permutewithdfs(nums=[1, 2, 3])
+# └── _dfs(nums=[1, 2, 3], path=[], res=[])
+#     ├── _dfs(nums=[2, 3], path=[1]n, res=[])
+#     │   ├── _dfs(nums=[3], path=[1, 2], res=[])
+#     │   │   └── _dfs(nums=[], path=[1, 2, 3], res=[[1, 2, 3]])
+#     │   └── _dfs(nums=[2], path=[1, 3], res=[])
+#     │       └── _dfs(nums=[], path=[1, 3, 2], res=[[1, 3, 2]])
+#     ├── _dfs(nums=[1, 3], path=[2], res=[])
+#     │   ├── _dfs(nums=[3], path=[2, 1], res=[])
+#     │   │   └── _dfs(nums=[], path=[2, 1, 3], res=[[2, 1, 3]])
+#     │   └── _dfs(nums=[1], path=[2, 3], res=[])
+#     │       └── _dfs(nums=[], path=[2, 3, 1], res=[[2, 3, 1]])
+#     ├── _dfs(nums=[1, 2], path=[3], res=[])
+#     │   ├── _dfs(nums=[2], path=[3, 1], res=[])
+#     │   │   └── _dfs(nums=[], path=[3, 1, 2], res=[[3, 1, 2]])
+#     │   └── _dfs(nums=[1], path=[3, 2], res=[])
+#     │       └── _dfs(nums=[], path=[3, 2, 1], res=[[3, 2, 1]])
+#     └── res=[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
 
 
 if __name__ == "__main__":

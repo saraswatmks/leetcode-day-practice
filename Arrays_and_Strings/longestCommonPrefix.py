@@ -7,20 +7,21 @@ Output: "fl"
 
 """
 
+
 class Solution:
     def longestCommonPrefixOne(self, s):
         """
-        This is using horizontal scanning. 
+        This is using horizontal scanning.
 
         Time Complexity: O(s) -> s is sum of all characters in all string
         Space Complexity: O(1)
         """
-        
+
         if not s:
             return ""
 
         pref = s[0]
-        
+
         for i in range(1, len(s)):
             # check how many chars exist in prefix
             tmp = ""
@@ -36,7 +37,7 @@ class Solution:
 
     def longestCommonPrefixTwo(self, s):
         """
-        This is using vertical scanning. 
+        This is using vertical scanning.
 
         Time Complexity: O(s) -> s is sum of all characters in all string
         Space Complexity: O(1)
@@ -44,10 +45,10 @@ class Solution:
         It is slightly better because of best time complexity.
         Worst time complexity is still the same as previous solution.
         """
-        
+
         if not s:
             return ""
-        
+
         for i in range(len(s[0])):
             c = s[0][i]
             for j in range(1, len(s)):
@@ -64,40 +65,40 @@ class Solution:
         Space Complexity: O(1)
         """
         if len(strs) == 0:
-            return '' 
-        res = ''
+            return ""
+        res = ""
         strs = sorted(strs)
         for i in strs[0]:
-            if strs[-1].startswith(res+i):
+            if strs[-1].startswith(res + i):
                 res += i
             else:
                 break
         return res
-    
+
     def longestCommonPrefixFour(self, strs) -> str:
         """
         This works because:
-        lets say strs = ["corona", "correlation", "correction"] 
+        lets say strs = ["corona", "correlation", "correction"]
         then zip(*strs) = (('c', 'c', 'c'), ('o', 'o', 'o'), ('r', 'r', 'r'), ('o', 'r', 'r'), ('n', 'e', 'e'), ('a', 'l', 'c'))
-        for each tuple, all chars must be same if it is shared, we stop at tuple when 
+        for each tuple, all chars must be same if it is shared, we stop at tuple when
         we have more than one char.
 
-        Time Complexity: O(S) -> S is all chars across all string.
+        Time Complexity: O(N * M) where N is the number of strings in the list and M is the length of the smallest string in the list.
 
         """
-        pre=""
+        pre = ""
         for t in zip(*strs):
-            if len(set(t))==1:
-                pre+=t[0]
+            if len(set(t)) == 1:
+                pre += t[0]
             else:
                 break
         return pre
 
 
 if __name__ == "__main__":
-    strs = ["flower","flow","flight"]
+    strs = ["flower", "flow", "flight"]
     sol = Solution().longestCommonPrefixOne(strs)
     print(sol)
-    strs = ["flower","flow","flight"]
+    strs = ["flower", "flow", "flight"]
     sol = Solution().longestCommonPrefixTwo(strs)
     print(sol)

@@ -5,7 +5,7 @@ Given two strings s and p, return an array of all the start indices of p's anagr
 https://leetcode.com/problems/find-all-anagrams-in-a-string/
 
 Input: s = "cbaebabacd", p = "abc"
-Output: [0,6]
+Output: [0,6]`
 """
 
 from collections import Counter
@@ -82,7 +82,7 @@ class Solution:
             if j - i + 1 < np:
                 j += 1
             elif j - i + 1 == np:
-                # anagram found
+                # anagram length found
                 if s_count == p_count:
                     output.append(i)
                 # move the window and update the counter

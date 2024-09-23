@@ -30,6 +30,8 @@ class Solution:
                 k += nums[l] % 2  # if od 0 gets added, if even, 1
                 l += 1
                 count += 1
+            # count doubles with every even number seen post while loop execution until the next
+            # odd number is seen
             res += count
 
         return res

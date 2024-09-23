@@ -49,7 +49,7 @@ if __name__ == "__main__":
     # nums = [24, 1, 1, 1, 1]
     # nums = [1, 2, 4, 6]
     # nums = [23, 2, 6, 4, 7]
-    nums = [23, 2, 2, 1, 2]
+    nums = [23, 1, 2, 1, 2]
     k = 6
     sol = Solution().checkSubarraySum(nums, k)
     print(sol)

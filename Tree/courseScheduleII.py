@@ -9,6 +9,7 @@ Explanation: There are a total of 4 courses to take. To take course 3 you should
 So one correct course order is [0,1,2,3]. Another correct ordering is [0,2,1,3].
 
 """
+
 from collections import defaultdict
 
 
@@ -48,10 +49,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    numCourses = 3
-    # numCourses = 4
-    # prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]]
-    prerequisites = [[1, 0], [1, 2], [0, 1]]
+    # numCourses = 3
+    numCourses = 4
+    prerequisites = [[1, 0], [2, 0], [3, 1], [3, 2]]
+    # prerequisites = [[1, 0], [1, 2], [0, 1]]
     s = Solution().solutionOne(
         numCourses=numCourses, prerequisites=prerequisites
     )
