@@ -11,6 +11,10 @@ import heapq
 
 class Solution:
     def minRoomsI(self, intervals):
+        """
+        TC: O(n log n)
+        SC: O(n)
+        """
         # sort by start time
         intervals = sorted(intervals, key=lambda x: x[0])
         heap = []
@@ -23,6 +27,27 @@ class Solution:
                 heapq.heappush(heap, i[1])
         
         return len(heap)
+
+    def minRoomsII(self, intervals):
+        """
+        Using Sweep Line technique - this is more performant since prefix sum is faster than heap push pop
+        TC: O(n log n)
+        SC: O(n)
+        """
+        timeline = defaultdict(int)
+
+        for s, e in intervals:
+            timeline[s]+=1
+            timeline[e]-=1
+
+        curr_rooms = 0
+        max_rooms = 0
+
+        for time in sorted(timeline):
+            curr_rooms += timeline[time]
+            max_rooms = max(max_rooms, curr_rooms)
+
+        return max_rooms
 
 if __name__ == "__main__":
     intr= [[0,30],[5,10],[15,20]]
